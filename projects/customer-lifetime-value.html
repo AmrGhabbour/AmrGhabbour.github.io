@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Customer Lifetime Value Analysis | Amr Ghabbour</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+.case-wrap{margin-top:70px}
+.case-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;border-top:1px solid var(--line);padding-top:40px}
+.case-grid h2,.section h2{font:600 36px/1.05 'Space Grotesk';margin:0 0 18px}
+.case-grid p,.section p,.section li{color:var(--muted);line-height:1.75}
+.section{margin-top:80px}
+.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.metric{border:1px solid var(--line);padding:24px;background:rgba(255,255,255,.02)}
+.metric strong{display:block;font:600 34px/1 'Space Grotesk';margin-bottom:8px}
+.metric span{color:var(--muted);font-size:14px}
+.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.step{border-top:2px solid var(--accent);padding:20px 0}
+.step b{display:block;font:600 20px 'Space Grotesk';margin-bottom:8px}
+.step p{font-size:14px;margin:0}
+.insight{margin-top:70px;background:var(--accent);color:white;padding:50px}
+.insight h2{font:600 42px/1.05 'Space Grotesk';margin:0 0 18px}
+.insight p,.insight li{color:rgba(255,255,255,.76);line-height:1.75}
+.codebox{background:#111;padding:24px;overflow:auto;margin-top:25px;border:1px solid rgba(255,255,255,.08)}
+.codebox code{color:#ddd;font-family:monospace;font-size:14px;line-height:1.7}
+.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+@media(max-width:800px){
+ .case-grid,.metric-grid,.pipeline{grid-template-columns:1fr}
+ .insight{padding:32px}
+ .insight h2{font-size:32px}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+<a class="logo" href="../index.html">AG<span>.</span></a>
+<nav><a href="../index.html#projects">Projects</a><a href="../index.html#about">About</a><a href="../index.html#experience">Experience</a><a href="../index.html#contact">Contact</a></nav>
+</header>
+
+<main class="container" style="padding:90px 0">
+
+<p class="eyebrow">PYTHON · CUSTOMER ANALYTICS · PREDICTIVE MODELING</p>
+<h1 style="font:600 clamp(48px,7vw,86px)/.95 'Space Grotesk';letter-spacing:-.05em;max-width:1000px;margin:0 0 28px">
+Customer Lifetime Value Analysis
+</h1>
+<p class="lead" style="max-width:800px">
+A predictive customer analytics project that estimates future purchasing behavior and lifetime value, then turns those predictions into actionable customer segments.
+</p>
+
+<div class="case-wrap case-grid">
+<div>
+<p class="eyebrow">BUSINESS PROBLEM</p>
+<h2>Which customers are likely to create the most future value?</h2>
+<p>
+Historical revenue tells you what a customer has already generated. It does not directly answer what that customer is likely to generate next.
+This project builds a predictive CLV workflow so a business can move from backward-looking customer value to forward-looking decisions around segmentation, marketing and retention.
+</p>
+</div>
+<div>
+<p class="eyebrow">DECISION FRAMEWORK</p>
+<h2>Predict behavior first. Segment customers second.</h2>
+<p>
+The analysis separates the problem into two questions: how often a customer is expected to purchase, and how valuable each expected purchase is.
+Those predictions are then combined into Customer Lifetime Value and used as inputs to KMeans clustering.
+</p>
+</div>
+</div>
+
+<div class="metric-grid">
+<div class="metric"><strong>50K</strong><span>transaction records in the notebook dataset</span></div>
+<div class="metric"><strong>5K</strong><span>customers represented in the RFM summary</span></div>
+<div class="metric"><strong>30 days</strong><span>purchase horizon used for BG/NBD transaction prediction</span></div>
+<div class="metric"><strong>12 months</strong><span>CLV horizon used in the notebook</span></div>
+</div>
+
+<section class="section">
+<p class="eyebrow">DATA &amp; PREPARATION</p>
+<h2>From transaction history to customer-level behavior</h2>
+<p>
+The notebook reads <code>sales_transactions.csv</code>. The dataset contains invoice, date, customer, item, quantity, item price and transaction value fields.
+Using the <code>lifetimes</code> library, the transaction history is transformed into customer-level metrics: frequency, recency, customer age/tenure (T), and monetary value.
+</p>
+<div class="codebox"><code>
+invoice_id · date · Customer_id · item_id · quantity · Item_Price · Value<br><br>
+frequency · recency · T · monetary_value
+</code></div>
+</section>
+
+<section class="section">
+<p class="eyebrow">ANALYTICAL PIPELINE</p>
+<h2>Four layers from raw transactions to customer strategy</h2>
+<div class="pipeline">
+<div class="step">
+<b>01 · RFM foundation</b>
+<p>Aggregate transaction history into customer-level frequency, recency, T and monetary value.</p>
+</div>
+<div class="step">
+<b>02 · Purchase prediction</b>
+<p>Fit BetaGeoFitter to estimate each customer's expected future transaction activity.</p>
+</div>
+<div class="step">
+<b>03 · Value prediction</b>
+<p>Fit GammaGammaFitter to estimate expected average monetary value per transaction.</p>
+</div>
+<div class="step">
+<b>04 · CLV segmentation</b>
+<p>Combine the predictions into CLV, then use KMeans to group customers by predicted behavior and value.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<p class="eyebrow">MODEL DESIGN</p>
+<h2>Two predictive models, one customer-value view</h2>
+<p>
+The notebook uses a Beta-Geometric/Negative Binomial approach through <code>BetaGeoFitter</code> for future purchase frequency and <code>GammaGammaFitter</code> for expected transaction value.
+Both models are fitted with a penalizer coefficient of 0.01.
+</p>
+<p>
+The BG/NBD model is used to estimate the expected number of purchases over a 30-day period and also calculates a customer-level probability of being alive. The Gamma-Gamma model estimates expected average transaction value.
+</p>
+<p>
+The notebook then combines the two models through the <code>customer_lifetime_value()</code> function using a 12-month horizon, daily frequency and a 1% discount rate.
+</p>
+</section>
+
+<div class="insight">
+<p class="eyebrow" style="color:var(--accent2)">KEY INSIGHTS</p>
+<h2>The output is not just a CLV number. It is a customer prioritization framework.</h2>
+<ul>
+<li><strong>Future purchase behavior:</strong> customers are ranked using predicted transaction activity rather than historical frequency alone.</li>
+<li><strong>Expected economic value:</strong> predicted transaction value adds a monetary dimension to future purchase behavior.</li>
+<li><strong>Customer health:</strong> the model calculates probability-alive, providing a behavioral signal for retention prioritization.</li>
+<li><strong>Actionable segmentation:</strong> KMeans clusters customers using predicted transactions, predicted transaction value and CLV.</li>
+</ul>
+</div>
+
+<section class="section">
+<p class="eyebrow">CUSTOMER SEGMENTATION</p>
+<h2>Turning predictions into personas for action</h2>
+<p>
+Rather than clustering customers only on historical RFM values, the notebook clusters on <code>pred_num_txn</code>, <code>pred_txn_value</code> and <code>CLV</code>.
+The number of clusters is selected using Yellowbrick's KElbowVisualizer, after which KMeans assigns each customer to a segment.
+</p>
+<p>
+This creates a practical bridge from predictive modeling to commercial action: high predicted value customers can be prioritized for retention and loyalty initiatives, while lower-value or lower-activity groups can be approached with more targeted and cost-conscious interventions.
+</p>
+</section>
+
+<section class="section">
+<p class="eyebrow">DATA PROFILE</p>
+<h2>What the customer-level summary looked like</h2>
+<p>
+The notebook's RFM summary contains 5,000 customers. Mean frequency is 8.965 purchases, mean recency is 1,112.17 days, mean customer age (T) is 1,253.07 days, and mean monetary value is 7,579.26.
+</p>
+<div class="metric-grid">
+<div class="metric"><strong>8.97</strong><span>mean purchase frequency</span></div>
+<div class="metric"><strong>1,112d</strong><span>mean recency</span></div>
+<div class="metric"><strong>1,253d</strong><span>mean customer age (T)</span></div>
+<div class="metric"><strong>7,579</strong><span>mean monetary value</span></div>
+</div>
+</section>
+
+<section class="section">
+<p class="eyebrow">BUSINESS APPLICATION</p>
+<h2>Where this analysis can support decisions</h2>
+<div class="case-grid">
+<div>
+<h2 style="font-size:28px">Retention</h2>
+<p>Prioritize customers with strong predicted future value and weaker recent engagement for proactive retention treatment.</p>
+</div>
+<div>
+<h2 style="font-size:28px">Marketing allocation</h2>
+<p>Use predicted CLV to differentiate investment levels instead of treating every customer as equally valuable.</p>
+</div>
+<div>
+<h2 style="font-size:28px">Loyalty strategy</h2>
+<p>Identify customers whose expected future contribution justifies stronger loyalty and relationship-building programs.</p>
+</div>
+<div>
+<h2 style="font-size:28px">Customer portfolio management</h2>
+<p>Use the resulting clusters as a starting point for different commercial strategies across customer value tiers.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<p class="eyebrow">TOOLS</p>
+<h2>Technical stack</h2>
+<p>
+Python · pandas · NumPy · lifetimes · BetaGeoFitter · GammaGammaFitter · scikit-learn · KMeans · Yellowbrick · Matplotlib · Seaborn
+</p>
+</section>
+
+<section class="section">
+<p class="eyebrow">WHAT THIS PROJECT DEMONSTRATES</p>
+<h2>From descriptive customer analysis to predictive commercial intelligence.</h2>
+<p>
+This project demonstrates the ability to structure transaction data into customer-level features, apply probabilistic customer-base models, estimate future value, and translate model outputs into a segmentation framework that can support marketing and retention decisions.
+</p>
+<div class="links">
+<a class="btn primary" href="https://github.com/AmrGhabbour/Customer_Lifetime_Value_Python" target="_blank" rel="noopener">View GitHub Repository ↗</a>
+<a class="btn" href="https://github.com/AmrGhabbour/Customer_Lifetime_Value_Python/blob/main/Customer_LifeTime_Value.ipynb" target="_blank" rel="noopener">Open Notebook ↗</a>
+<a class="btn" href="../index.html#projects">← Back to projects</a>
+</div>
+</section>
+
+</main>
+</body>
+</html>

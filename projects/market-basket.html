@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Market Basket Analysis by Amr Ghabbour — Apriori association rules, product bundles, cross-selling and promotion intelligence.">
+  <title>Market Basket Analysis | Amr Ghabbour</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .project-hero{padding:90px 0 55px}
+    .project-kicker{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}
+    .project-kicker span{border:1px solid var(--line);padding:8px 12px;border-radius:999px;font-size:.78rem;color:var(--muted)}
+    .metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:42px}
+    .metric{border:1px solid var(--line);padding:24px;border-radius:18px;background:rgba(127,127,127,.035)}
+    .metric strong{display:block;font:700 34px/1 'Space Grotesk';margin-bottom:8px}
+    .metric span{color:var(--muted);font-size:.9rem}
+    .case-grid{margin-top:65px;border-top:1px solid var(--line);padding-top:42px;display:grid;grid-template-columns:1fr 1fr;gap:55px}
+    .case-grid h2{font:600 34px/1.1 'Space Grotesk';margin:0 0 16px}
+    .case-grid p,.case-grid li{color:var(--muted);line-height:1.75}
+    .case-grid ul{padding-left:20px}
+    .highlight{margin-top:65px;padding:45px;border-radius:24px;background:var(--accent);color:#fff}
+    .highlight h2{font:600 40px/1.1 'Space Grotesk';margin:0 0 14px}
+    .highlight p{color:rgba(255,255,255,.75);line-height:1.75}
+    .rule-card{margin-top:18px;padding:22px;border:1px solid var(--line);border-radius:16px}
+    .rule-card b{font-family:monospace}
+    .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+    .flow div{padding:20px;border:1px solid var(--line);border-radius:16px}
+    .flow strong{display:block;margin-bottom:7px}
+    .flow span{font-size:.88rem;color:var(--muted)}
+    .links{display:flex;gap:12px;flex-wrap:wrap;margin-top:35px}
+    @media(max-width:800px){.metric-grid,.flow{grid-template-columns:1fr 1fr}.case-grid{grid-template-columns:1fr}.project-hero{padding-top:55px}}
+    @media(max-width:520px){.metric-grid,.flow{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header class="nav">
+  <a class="logo" href="../index.html">AG<span>.</span></a>
+  <nav>
+    <a href="../index.html#projects">Projects</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="project-hero">
+    <p class="eyebrow">PYTHON · APRIORI · ASSOCIATION RULES</p>
+    <h1 style="font:600 clamp(48px,7vw,86px)/.95 'Space Grotesk';letter-spacing:-.05em;max-width:980px;margin:0 0 24px">
+      Market Basket<br><em>Analysis</em>
+    </h1>
+    <p class="lead" style="max-width:820px">
+      A product-bundling analysis designed to move from “what sells?” to
+      “what products naturally belong together?” — using transaction data,
+      Apriori and association-rule metrics to support promotions, placement and cross-selling decisions.
+    </p>
+
+    <div class="project-kicker">
+      <span>Product Bundles</span>
+      <span>Cross-Selling</span>
+      <span>Promotion Intelligence</span>
+      <span>Customer Behavior</span>
+    </div>
+
+    <div class="links">
+      <a class="btn primary" href="https://github.com/AmrGhabbour/Market_Basket_Analysis" target="_blank" rel="noopener">View GitHub Repository ↗</a>
+      <a class="btn secondary" href="https://github.com/AmrGhabbour/Market_Basket_Analysis/blob/main/Market%20basket%20analysis.ipynb" target="_blank" rel="noopener">Open Notebook ↗</a>
+    </div>
+
+    <div class="metric-grid">
+      <div class="metric"><strong>198</strong><span>transactions represented in the prepared basket matrix</span></div>
+      <div class="metric"><strong>100</strong><span>product columns in the transaction matrix</span></div>
+      <div class="metric"><strong>663</strong><span>association rules generated at the selected thresholds</span></div>
+      <div class="metric"><strong>99×</strong><span>maximum lift shown in the notebook's top-rule output</span></div>
+    </div>
+  </section>
+
+  <section class="case-grid">
+    <div>
+      <p class="eyebrow">BUSINESS PROBLEM</p>
+      <h2>Which products should be considered together?</h2>
+      <p>
+        The project starts from a practical commercial question: products do not
+        behave independently. If customers repeatedly purchase certain items
+        together, those relationships can inform bundle offers, product placement
+        and promotional decisions.
+      </p>
+      <p>
+        The README frames three uses for the analysis: smarter promotions,
+        strategic placement, and understanding which customers repeatedly buy
+        related products. citeturn0view0
+      </p>
+    </div>
+
+    <div>
+      <p class="eyebrow">DATA & PREPARATION</p>
+      <h2>From invoice rows to shopping baskets.</h2>
+      <p>
+        The notebook reads <strong>fake_sales.xlsx</strong> and works with fields
+        including InvoiceID, Date, CustomerNo, ItemID, Qty, Value, NetValue,
+        promotion value and warehouse information.
+      </p>
+      <p>
+        A discount-percentage field is derived, then the sales table is pivoted
+        by InvoiceID and ItemID. Each basket becomes a binary representation:
+        1 when a product appears in the invoice and 0 otherwise. The resulting
+        matrix is 198 × 100. citeturn1view0
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-left:0;padding-right:0">
+    <p class="eyebrow">ANALYTICAL PIPELINE</p>
+    <h2 style="font:600 42px 'Space Grotesk';margin-bottom:12px">A clear path from transactions to recommendations.</h2>
+    <p style="max-width:780px;color:var(--muted)">
+      The notebook explores support/confidence combinations before applying
+      Apriori with a 1% minimum support and a maximum itemset length of six,
+      followed by association rules with a 0.20 minimum confidence threshold. citeturn2view0turn3view0
+    </p>
+
+    <div class="flow">
+      <div><strong>01 · Prepare</strong><span>Clean sales data and create the invoice × product basket.</span></div>
+      <div><strong>02 · Discover</strong><span>Use Apriori to identify frequent itemsets.</span></div>
+      <div><strong>03 · Measure</strong><span>Evaluate support, confidence, lift and related rule metrics.</span></div>
+      <div><strong>04 · Activate</strong><span>Use product relationships to inform bundles, placement and promotions.</span></div>
+    </div>
+  </section>
+
+  <section class="case-grid">
+    <div>
+      <p class="eyebrow">KEY ANALYTICAL FINDINGS</p>
+      <h2>Not every frequent combination is a meaningful relationship.</h2>
+      <p>
+        The notebook explicitly evaluates support, confidence and lift rather
+        than relying only on raw co-occurrence. The generated rules table
+        contains 663 rules and 16 columns, while the top-lift output reaches
+        99.0 for several sparse combinations. citeturn3view1turn2view3
+      </p>
+      <div class="rule-card">
+        <b>Example rule</b><br><br>
+        Product <strong>100000</strong> → Product <strong>100048</strong><br>
+        Support: <strong>1.52%</strong> · Confidence: <strong>30%</strong> · Lift: <strong>4.95×</strong>
+      </div>
+      <p style="margin-top:18px">
+        This illustrates why lift is useful: a relationship can be relatively
+        uncommon overall while still being substantially stronger than would be
+        expected from the products' individual popularity. citeturn3view0turn2view3
+      </p>
+    </div>
+
+    <div>
+      <p class="eyebrow">THE CUSTOM RECOMMENDATION ENGINE</p>
+      <h2><code>bst_products()</code> turns rules into product recommendations.</h2>
+      <p>
+        Instead of leaving the output as a large association-rules table, the
+        notebook builds a reusable function that accepts a Product ID and
+        filters the rules to find relevant associated products.
+      </p>
+      <p>
+        It calculates shared invoices, shared invoices per month, confidence
+        percentage and the number of unique customers overlapping between the
+        target and recommended products. The final result is narrowed to the
+        strongest recommendations. citeturn3view2turn3view3
+      </p>
+    </div>
+  </section>
+
+  <section class="highlight">
+    <p class="eyebrow" style="color:rgba(255,255,255,.55)">BUSINESS APPLICATION</p>
+    <h2>The output is designed to answer a commercial question.</h2>
+    <p>
+      For a selected product, the analysis can surface the products most closely
+      associated with it and provide additional context around how often the
+      products appear together and how many customers overlap. That creates a
+      practical foundation for bundle design, shelf/catalogue placement,
+      cross-selling and promotional targeting. citeturn0view0turn3view2
+    </p>
+  </section>
+
+  <section class="case-grid">
+    <div>
+      <p class="eyebrow">TOOLS</p>
+      <h2>Technical stack</h2>
+      <p>
+        Python · Pandas · NumPy · Matplotlib · Seaborn · SciPy ·
+        scikit-learn · mlxtend · Yellowbrick
+      </p>
+      <p>
+        The notebook also uses exploratory visualizations to examine how support
+        and confidence thresholds affect the number of rules discovered. citeturn2view1
+      </p>
+    </div>
+
+    <div>
+      <p class="eyebrow">WHAT THIS PROJECT DEMONSTRATES</p>
+      <h2>Beyond the algorithm.</h2>
+      <ul>
+        <li>Translating transaction-level data into a business decision framework.</li>
+        <li>Choosing association metrics based on business meaning.</li>
+        <li>Building reusable analytical functions instead of one-off outputs.</li>
+        <li>Connecting product relationships to promotions and merchandising.</li>
+        <li>Turning a technical notebook into an actionable commercial story.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section style="padding:70px 0 90px">
+    <div class="links">
+      <a class="btn primary" href="https://github.com/AmrGhabbour/Market_Basket_Analysis" target="_blank" rel="noopener">View Full Project on GitHub ↗</a>
+      <a class="btn secondary" href="../index.html#projects">← Back to Projects</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer container">
+  <span>© 2026 Amr Ghabbour</span>
+  <span>Built for decisions, not decoration.</span>
+</footer>
+</body>
+</html>

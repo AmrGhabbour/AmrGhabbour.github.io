@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Telecom Customer Churn Prediction | Amr Ghabbour</title>
+
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header class="nav">
+    <a class="logo" href="../index.html">AG<span>.</span></a>
+
+    <nav>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#contact">Contact</a>
+    </nav>
+</header>
+
+
+<main class="container" style="padding:90px 0">
+
+    <!-- HERO -->
+
+    <p class="eyebrow">PYTHON · MACHINE LEARNING · CUSTOMER ANALYTICS</p>
+
+    <h1 style="
+        font:600 clamp(48px,7vw,86px)/.95 'Space Grotesk';
+        letter-spacing:-.05em;
+        max-width:1000px;
+        margin:0 0 28px;
+    ">
+        Telecom Customer<br>
+        Churn Prediction
+    </h1>
+
+    <p class="lead" style="max-width:800px">
+        An end-to-end customer analytics and machine learning project designed
+        to identify customers at risk of churn and prioritize them for
+        targeted retention actions.
+    </p>
+
+
+    <!-- PROJECT META -->
+
+    <div style="
+        margin-top:45px;
+        display:flex;
+        flex-wrap:wrap;
+        gap:12px;
+    ">
+
+        <span style="
+            border:1px solid var(--line);
+            padding:10px 16px;
+            border-radius:30px;
+            color:var(--muted);
+        ">
+            Python
+        </span>
+
+        <span style="
+            border:1px solid var(--line);
+            padding:10px 16px;
+            border-radius:30px;
+            color:var(--muted);
+        ">
+            Pandas
+        </span>
+
+        <span style="
+            border:1px solid var(--line);
+            padding:10px 16px;
+            border-radius:30px;
+            color:var(--muted);
+        ">
+            Scikit-learn
+        </span>
+
+        <span style="
+            border:1px solid var(--line);
+            padding:10px 16px;
+            border-radius:30px;
+            color:var(--muted);
+        ">
+            XGBoost
+        </span>
+
+        <span style="
+            border:1px solid var(--line);
+            padding:10px 16px;
+            border-radius:30px;
+            color:var(--muted);
+        ">
+            EDA
+        </span>
+
+        <span style="
+            border:1px solid var(--line);
+            padding:10px 16px;
+            border-radius:30px;
+            color:var(--muted);
+        ">
+            Decile Analysis
+        </span>
+
+    </div>
+
+
+    <!-- BUSINESS PROBLEM -->
+
+    <div style="
+        margin-top:80px;
+        border-top:1px solid var(--line);
+        padding-top:50px;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:60px;
+    ">
+
+        <div>
+
+            <p class="eyebrow">BUSINESS PROBLEM</p>
+
+            <h2 style="
+                font:600 36px 'Space Grotesk';
+                margin-bottom:20px;
+            ">
+                Who is most likely to leave?
+            </h2>
+
+            <p style="color:var(--muted);line-height:1.8">
+                Customer churn is a major challenge for telecom companies.
+                Instead of treating every customer equally, the business needs
+                to identify customers who are most likely to churn and focus
+                retention resources where they can have the greatest impact.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <p class="eyebrow">BUSINESS QUESTION</p>
+
+            <h2 style="
+                font:600 36px 'Space Grotesk';
+                margin-bottom:20px;
+            ">
+                Where should retention teams focus?
+            </h2>
+
+            <p style="color:var(--muted);line-height:1.8">
+                The objective was not simply to maximize prediction accuracy.
+                The project focused on identifying meaningful churn drivers,
+                predicting customer-level churn risk, and ranking customers
+                according to their probability of leaving.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- DATA -->
+
+    <div style="
+        margin-top:80px;
+        border-top:1px solid var(--line);
+        padding-top:50px;
+    ">
+
+        <p class="eyebrow">DATASET</p>
+
+        <h2 style="
+            font:600 42px 'Space Grotesk';
+            margin-bottom:25px;
+        ">
+            7,043 customers · 21 variables
+        </h2>
+
+        <p style="
+            color:var(--muted);
+            max-width:800px;
+            line-height:1.8;
+        ">
+            The dataset contains customer demographics, telecom services,
+            contract information, payment methods, tenure and customer
+            charges. The target variable is whether the customer churned.
+        </p>
+
+    </div>
+
+
+    <!-- APPROACH -->
+
+    <div style="
+        margin-top:80px;
+        border-top:1px solid var(--line);
+        padding-top:50px;
+    ">
+
+        <p class="eyebrow">ANALYTICAL APPROACH</p>
+
+        <h2 style="
+            font:600 42px 'Space Grotesk';
+            max-width:850px;
+            margin-bottom:45px;
+        ">
+            From customer behavior to retention strategy.
+        </h2>
+
+
+        <div style="
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:20px;
+        ">
+
+            <div style="
+                border:1px solid var(--line);
+                padding:30px;
+            ">
+
+                <p class="eyebrow">01</p>
+
+                <h3 style="font:600 26px 'Space Grotesk'">
+                    Data Understanding
+                </h3>
+
+                <p style="color:var(--muted);line-height:1.7">
+                    Explored customer characteristics, variable types,
+                    distributions and the overall churn profile.
+                </p>
+
+            </div>
+
+
+            <div style="
+                border:1px solid var(--line);
+                padding:30px;
+            ">
+
+                <p class="eyebrow">02</p>
+
+                <h3 style="font:600 26px 'Space Grotesk'">
+                    Exploratory Analysis
+                </h3>
+
+                <p style="color:var(--muted);line-height:1.7">
+                    Investigated relationships between customer attributes,
+                    services, contracts, payment methods and churn.
+                </p>
+
+            </div>
+
+
+            <div style="
+                border:1px solid var(--line);
+                padding:30px;
+            ">
+
+                <p class="eyebrow">03</p>
+
+                <h3 style="font:600 26px 'Space Grotesk'">
+                    Feature Engineering
+                </h3>
+
+                <p style="color:var(--muted);line-height:1.7">
+                    Converted categorical variables into predictive features,
+                    standardized numerical variables and removed identifiers.
+                </p>
+
+            </div>
+
+
+            <div style="
+                border:1px solid var(--line);
+                padding:30px;
+            ">
+
+                <p class="eyebrow">04</p>
+
+                <h3 style="font:600 26px 'Space Grotesk'">
+                    Machine Learning
+                </h3>
+
+                <p style="color:var(--muted);line-height:1.7">
+                    Compared Random Forest, XGBoost and Logistic Regression
+                    using multiple classification metrics.
+                </p>
+
+            </div>
+
+
+            <div style="
+                border:1px solid var(--line);
+                padding:30px;
+            ">
+
+                <p class="eyebrow">05</p>
+
+                <h3 style="font:600 26px 'Space Grotesk'">
+                    Model Evaluation
+                </h3>
+
+                <p style="color:var(--muted);line-height:1.7">
+                    Evaluated accuracy, precision, recall, F1 score and
+                    confusion matrices with particular attention to recall.
+                </p>
+
+            </div>
+
+
+            <div style="
+                border:1px solid var(--line);
+                padding:30px;
+            ">
+
+                <p class="eyebrow">06</p>
+
+                <h3 style="font:600 26px 'Space Grotesk'">
+                    Decile Analysis
+                </h3>
+
+                <p style="color:var(--muted);line-height:1.7">
+                    Ranked customers by predicted churn probability and
+                    segmented them into ten risk groups for retention
+                    prioritization.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- KEY INSIGHTS -->
+
+    <div style="
+        margin-top:80px;
+        background:var(--accent);
+        color:white;
+        padding:55px;
+    ">
+
+        <p class="eyebrow" style="color:var(--accent2)">
+            KEY INSIGHTS
+        </p>
+
+        <h2 style="
+            font:600 42px 'Space Grotesk';
+            max-width:800px;
+            margin-bottom:35px;
+        ">
+            Churn is not evenly distributed across customers.
+        </h2>
+
+
+        <div style="
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:35px;
+        ">
+
+            <div>
+                <h3 style="font:600 24px 'Space Grotesk'">
+                    Month-to-Month Contracts
+                </h3>
+
+                <p style="color:rgba(255,255,255,.72);line-height:1.7">
+                    Customers on month-to-month contracts showed a strong
+                    association with churn, making contract migration a
+                    potential retention opportunity.
+                </p>
+            </div>
+
+
+            <div>
+                <h3 style="font:600 24px 'Space Grotesk'">
+                    Short Tenure
+                </h3>
+
+                <p style="color:rgba(255,255,255,.72);line-height:1.7">
+                    Customers with shorter relationships were more likely to
+                    churn, suggesting the importance of early-life retention
+                    and onboarding programs.
+                </p>
+            </div>
+
+
+            <div>
+                <h3 style="font:600 24px 'Space Grotesk'">
+                    Fiber Optic Customers
+                </h3>
+
+                <p style="color:rgba(255,255,255,.72);line-height:1.7">
+                    Fiber Optic customers demonstrated higher churn levels,
+                    creating an opportunity to investigate pricing, service
+                    quality and customer expectations.
+                </p>
+            </div>
+
+
+            <div>
+                <h3 style="font:600 24px 'Space Grotesk'">
+                    Electronic Check
+                </h3>
+
+                <p style="color:rgba(255,255,255,.72);line-height:1.7">
+                    Electronic check users showed higher churn, suggesting
+                    potential opportunities around payment experience and
+                    automated payment adoption.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MODEL RESULTS -->
+
+    <div style="
+        margin-top:80px;
+        border-top:1px solid var(--line);
+        padding-top:50px;
+    ">
+
+        <p class="eyebrow">MODEL RESULTS</p>
+
+        <h2 style="
+            font:600 42px 'Space Grotesk';
+            margin-bottom:30px;
+        ">
+            Why XGBoost?
+        </h2>
+
+        <p style="
+            color:var(--muted);
+            max-width:800px;
+            line-height:1.8;
+            margin-bottom:40px;
+        ">
+            Logistic Regression achieved the highest overall accuracy,
+            but accuracy alone was not the right business objective.
+            For churn prediction, failing to identify a customer who will
+            actually leave can be more costly than targeting a customer
+            who ultimately stays.
+        </p>
+
+
+        <div style="
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:15px;
+        ">
+
+            <div style="
+                border:1px solid var(--line);
+                padding:25px;
+            ">
+                <p class="eyebrow">ACCURACY</p>
+                <h3 style="font:600 38px 'Space Grotesk'">
+                    78%
+                </h3>
+                <p style="color:var(--muted)">
+                    XGBoost
+                </p>
+            </div>
+
+
+            <div style="
+                border:1px solid var(--line);
+                padding:25px;
+            ">
+                <p class="eyebrow">RECALL</p>
+                <h3 style="font:600 38px 'Space Grotesk'">
+                    74%
+                </h3>
+                <p style="color:var(--muted)">
+                    Churn customers identified
+                </p>
+            </div>
+
+
+            <div style="
+                border:1px solid var(--line);
+                padding:25px;
+            ">
+                <p class="eyebrow">PRECISION</p>
+                <h3 style="font:600 38px 'Space Grotesk'">
+                    56%
+                </h3>
+                <p style="color:var(--muted)">
+                    Predicted churners
+                </p>
+            </div>
+
+
+            <div style="
+                border:1px solid var(--line);
+                padding:25px;
+            ">
+                <p class="eyebrow">F1 SCORE</p>
+                <h3 style="font:600 38px 'Space Grotesk'">
+                    64%
+                </h3>
+                <p style="color:var(--muted)">
+                    XGBoost
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DECILE ANALYSIS -->
+
+    <div style="
+        margin-top:80px;
+        border-top:1px solid var(--line);
+        padding-top:50px;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:60px;
+    ">
+
+        <div>
+
+            <p class="eyebrow">DECILE ANALYSIS</p>
+
+            <h2 style="
+                font:600 40px 'Space Grotesk';
+            ">
+                Prediction is only the first step.
+            </h2>
+
+        </div>
+
+
+        <div>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.8;
+            ">
+                Customers were ranked according to their predicted churn
+                probability and divided into ten deciles. This transforms
+                the model from a prediction engine into a prioritization
+                framework for customer retention.
+            </p>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.8;
+            ">
+                The analysis suggests focusing retention efforts on
+                approximately the first five deciles, where the cumulative
+                recall provides the strongest opportunity before additional
+                targeting produces diminishing returns.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- BUSINESS APPLICATION -->
+
+    <div style="
+        margin-top:80px;
+        border-top:1px solid var(--line);
+        padding-top:50px;
+    ">
+
+        <p class="eyebrow">BUSINESS APPLICATION</p>
+
+        <h2 style="
+            font:600 42px 'Space Grotesk';
+            max-width:850px;
+            margin-bottom:35px;
+        ">
+            Turning churn probability into retention action.
+        </h2>
+
+
+        <div style="
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:20px;
+        ">
+
+            <div style="
+                border:1px solid var(--line);
+                padding:30px;
+            ">
+
+                <p class="eyebrow">HIGH RISK</p>
+
+                <h3 style="font:600 25px 'Space Grotesk'">
+                    Immediate Intervention
+                </h3>
+
+                <p style="color:var(--muted);line-height:1.7">
+                    Target customers with retention offers, personalized
+                    plans, contract incentives and proactive support.
+                </p>
+
+            </div>
+
+
+            <div style="
+                border:1px solid var(--line);
+                padding:30px;
+            ">
+
+                <p class="eyebrow">MEDIUM RISK</p>
+
+                <h3 style="font:600 25px 'Space Grotesk'">
+                    Personalized Engagement
+                </h3>
+
+                <p style="color:var(--muted);line-height:1.7">
+                    Use targeted communication, loyalty incentives and
+                    relevant service recommendations.
+                </p>
+
+            </div>
+
+
+            <div style="
+                border:1px solid var(--line);
+                padding:30px;
+            ">
+
+                <p class="eyebrow">LOW RISK</p>
+
+                <h3 style="font:600 25px 'Space Grotesk'">
+                    Maintain Relationship
+                </h3>
+
+                <p style="color:var(--muted);line-height:1.7">
+                    Continue standard customer communication and loyalty
+                    programs without unnecessary retention spend.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TAKEAWAY -->
+
+    <div style="
+        margin-top:80px;
+        background:var(--accent);
+        color:white;
+        padding:55px;
+    ">
+
+        <p class="eyebrow" style="color:var(--accent2)">
+            PROJECT TAKEAWAY
+        </p>
+
+        <h2 style="
+            font:600 42px 'Space Grotesk';
+            max-width:850px;
+            margin-bottom:25px;
+        ">
+            A good churn model doesn't just predict who will leave.
+            It helps the business decide who to act on first.
+        </h2>
+
+        <p style="
+            color:rgba(255,255,255,.72);
+            max-width:800px;
+            line-height:1.8;
+        ">
+            By combining exploratory analysis, predictive modeling,
+            XGBoost and decile analysis, this project demonstrates how
+            customer analytics can move from understanding behavior to
+            prioritizing real-world retention decisions.
+        </p>
+
+    </div>
+
+
+    <!-- PROJECT ASSETS -->
+
+    <div style="
+        margin-top:80px;
+        border-top:1px solid var(--line);
+        padding-top:45px;
+    ">
+
+        <p class="eyebrow">PROJECT ASSETS</p>
+
+        <h2 style="
+            font:600 36px 'Space Grotesk';
+            margin-bottom:20px;
+        ">
+            Explore the analysis
+        </h2>
+
+        <p style="
+            color:var(--muted);
+            max-width:750px;
+            line-height:1.8;
+        ">
+            Review the complete notebook, dataset and project documentation
+            on GitHub.
+        </p>
+
+
+        <div style="
+            display:flex;
+            flex-wrap:wrap;
+            gap:15px;
+            margin-top:30px;
+        ">
+
+            <a
+                class="btn primary"
+                href="https://github.com/AmrGhabbour/Telecom_Customer_Churn_Prediction"
+                target="_blank"
+                rel="noopener"
+            >
+                GitHub Repository ↗
+            </a>
+
+            <a
+                class="btn"
+                href="https://github.com/AmrGhabbour/Telecom_Customer_Churn_Prediction/blob/main/Telecom_Customer_Churn_Prediction.ipynb"
+                target="_blank"
+                rel="noopener"
+            >
+                View Notebook ↗
+            </a>
+
+            <a
+                class="btn"
+                href="https://github.com/AmrGhabbour/Telecom_Customer_Churn_Prediction/blob/main/README.md"
+                target="_blank"
+                rel="noopener"
+            >
+                Read README ↗
+            </a>
+
+        </div>
+
+
+        <div style="margin-top:50px">
+
+            <a
+                class="btn"
+                href="../index.html#projects"
+            >
+                ← Back to projects
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>
