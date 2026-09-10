@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kuwait Pharmacies Accessibility Analysis | Amr Ghabbour</title>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+<body>
+
+<header class="nav">
+
+```
+<a class="logo" href="../index.html">
+    AG<span>.</span>
+</a>
+
+<nav>
+    <a href="../index.html#projects">Projects</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#contact">Contact</a>
+</nav>
+```
+
+</header>
+
+<main class="container" style="padding:90px 0">
+
+```
+<!-- HERO -->
+
+<p class="eyebrow">
+    PYTHON · GEOSPATIAL ANALYTICS · HEALTHCARE
+</p>
+
+
+<h1 style="
+    font:600 clamp(48px,7vw,86px)/.95 'Space Grotesk';
+    letter-spacing:-.05em;
+    max-width:1000px;
+    margin:0 0 28px;
+">
+
+    Kuwait Pharmacies<br>
+    Accessibility Analysis
+
+</h1>
+
+
+<p class="lead" style="max-width:820px">
+
+    A geospatial healthcare analysis designed to identify pharmacy
+    accessibility gaps across Kuwait by combining pharmacy locations,
+    population density, neighborhood boundaries and commercial activity.
+
+</p>
+
+
+
+<!-- TECH STACK -->
+
+<div style="
+    margin-top:45px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+">
+
+    <span style="
+        border:1px solid var(--line);
+        padding:10px 16px;
+        border-radius:30px;
+        color:var(--muted);
+    ">
+        Python
+    </span>
+
+
+    <span style="
+        border:1px solid var(--line);
+        padding:10px 16px;
+        border-radius:30px;
+        color:var(--muted);
+    ">
+        GeoPandas
+    </span>
+
+
+    <span style="
+        border:1px solid var(--line);
+        padding:10px 16px;
+        border-radius:30px;
+        color:var(--muted);
+    ">
+        OSMnx
+    </span>
+
+
+    <span style="
+        border:1px solid var(--line);
+        padding:10px 16px;
+        border-radius:30px;
+        color:var(--muted);
+    ">
+        Folium
+    </span>
+
+
+    <span style="
+        border:1px solid var(--line);
+        padding:10px 16px;
+        border-radius:30px;
+        color:var(--muted);
+    ">
+        Pandas
+    </span>
+
+
+    <span style="
+        border:1px solid var(--line);
+        padding:10px 16px;
+        border-radius:30px;
+        color:var(--muted);
+    ">
+        Spatial Analysis
+    </span>
+
+
+    <span style="
+        border:1px solid var(--line);
+        padding:10px 16px;
+        border-radius:30px;
+        color:var(--muted);
+    ">
+        Location Intelligence
+    </span>
+
+</div>
+
+
+
+<!-- BUSINESS PROBLEM -->
+
+<div style="
+    margin-top:80px;
+    border-top:1px solid var(--line);
+    padding-top:50px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+">
+
+
+    <div>
+
+        <p class="eyebrow">
+            BUSINESS PROBLEM
+        </p>
+
+
+        <h2 style="
+            font:600 36px 'Space Grotesk';
+            margin-bottom:20px;
+        ">
+
+            Where are healthcare access gaps?
+
+        </h2>
+
+
+        <p style="
+            color:var(--muted);
+            line-height:1.8;
+        ">
+
+            A high number of pharmacies at the national level does not
+            necessarily mean that healthcare access is evenly distributed.
+
+            The objective was to understand how pharmacy locations align
+            with population distribution and identify areas where large
+            populations may have limited access to pharmaceutical services.
+
+        </p>
+
+    </div>
+
+
+
+    <div>
+
+        <p class="eyebrow">
+            BUSINESS QUESTION
+        </p>
+
+
+        <h2 style="
+            font:600 36px 'Space Grotesk';
+            margin-bottom:20px;
+        ">
+
+            Where should the next pharmacy be?
+
+        </h2>
+
+
+        <p style="
+            color:var(--muted);
+            line-height:1.8;
+        ">
+
+            The analysis goes beyond simply mapping pharmacies.
+
+            By combining population density, service coverage and
+            commercial activity, it creates a location-intelligence
+            framework that can support pharmacy expansion and healthcare
+            accessibility decisions.
+
+        </p>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- DATA -->
+
+<div style="
+    margin-top:80px;
+    border-top:1px solid var(--line);
+    padding-top:50px;
+">
+
+    <p class="eyebrow">
+        DATA SOURCES
+    </p>
+
+
+    <h2 style="
+        font:600 42px 'Space Grotesk';
+        margin-bottom:25px;
+    ">
+
+        Combining geography with demographics.
+
+    </h2>
+
+
+    <p style="
+        color:var(--muted);
+        max-width:850px;
+        line-height:1.8;
+    ">
+
+        The project integrates multiple geographic and demographic
+        datasets to create a unified view of healthcare accessibility
+        across Kuwait.
+
+    </p>
+
+
+
+    <div style="
+        margin-top:40px;
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:20px;
+    ">
+
+
+        <div style="
+            border:1px solid var(--line);
+            padding:30px;
+        ">
+
+            <p class="eyebrow">
+                OPENSTREETMAP
+            </p>
+
+            <h3 style="
+                font:600 26px 'Space Grotesk';
+            ">
+                Pharmacy & Commercial Locations
+            </h3>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.7;
+            ">
+
+                Pharmacy, chemist and commercial facility locations
+                retrieved through OSMnx and OpenStreetMap.
+
+            </p>
+
+        </div>
+
+
+
+        <div style="
+            border:1px solid var(--line);
+            padding:30px;
+        ">
+
+            <p class="eyebrow">
+                PACI
+            </p>
+
+            <h3 style="
+                font:600 26px 'Space Grotesk';
+            ">
+                Official Neighborhood Boundaries
+            </h3>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.7;
+            ">
+
+                Official Kuwaiti neighborhood boundaries used to
+                aggregate pharmacy counts and population relationships.
+
+            </p>
+
+        </div>
+
+
+
+        <div style="
+            border:1px solid var(--line);
+            padding:30px;
+        ">
+
+            <p class="eyebrow">
+                KONTUR
+            </p>
+
+            <h3 style="
+                font:600 26px 'Space Grotesk';
+            ">
+                Population Grid
+            </h3>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.7;
+            ">
+
+                High-resolution 400m population data used to identify
+                densely populated areas with insufficient pharmacy
+                coverage.
+
+            </p>
+
+        </div>
+
+
+
+        <div style="
+            border:1px solid var(--line);
+            padding:30px;
+        ">
+
+            <p class="eyebrow">
+                LOCAL GIS DATA
+            </p>
+
+            <h3 style="
+                font:600 26px 'Space Grotesk';
+            ">
+                Healthcare & Road Networks
+            </h3>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.7;
+            ">
+
+                Additional geographic layers used to support healthcare
+                facility analysis and spatial interpretation.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- METHODOLOGY -->
+
+<div style="
+    margin-top:80px;
+    border-top:1px solid var(--line);
+    padding-top:50px;
+">
+
+
+    <p class="eyebrow">
+        ANALYTICAL APPROACH
+    </p>
+
+
+    <h2 style="
+        font:600 42px 'Space Grotesk';
+        max-width:850px;
+        margin-bottom:45px;
+    ">
+
+        From raw coordinates to location intelligence.
+
+    </h2>
+
+
+
+    <div style="
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:20px;
+    ">
+
+
+        <div style="
+            border:1px solid var(--line);
+            padding:30px;
+        ">
+
+            <p class="eyebrow">
+                01
+            </p>
+
+            <h3 style="
+                font:600 26px 'Space Grotesk';
+            ">
+                Geospatial Data Acquisition
+            </h3>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.7;
+            ">
+
+                Retrieved pharmacy and commercial facility locations
+                across Kuwait using OpenStreetMap and OSMnx.
+
+            </p>
+
+        </div>
+
+
+
+        <div style="
+            border:1px solid var(--line);
+            padding:30px;
+        ">
+
+            <p class="eyebrow">
+                02
+            </p>
+
+            <h3 style="
+                font:600 26px 'Space Grotesk';
+            ">
+                Coordinate Standardization
+            </h3>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.7;
+            ">
+
+                Standardized geographic data into UTM Zone 39N
+                (EPSG:32639) to enable accurate metric-based spatial
+                calculations.
+
+            </p>
+
+        </div>
+
+
+
+        <div style="
+            border:1px solid var(--line);
+            padding:30px;
+        ">
+
+            <p class="eyebrow">
+                03
+            </p>
+
+            <h3 style="
+                font:600 26px 'Space Grotesk';
+            ">
+                Neighborhood Aggregation
+            </h3>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.7;
+            ">
+
+                Used spatial joins to count pharmacies within official
+                PACI neighborhood boundaries.
+
+            </p>
+
+        </div>
+
+
+
+        <div style="
+            border:1px solid var(--line);
+            padding:30px;
+        ">
+
+            <p class="eyebrow">
+                04
+            </p>
+
+            <h3 style="
+                font:600 26px 'Space Grotesk';
+            ">
+                Service Area Modeling
+            </h3>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.7;
+            ">
+
+                Created a 1 km service-area buffer around pharmacy
+                locations to approximate accessible coverage.
+
+            </p>
+
+        </div>
+
+
+
+        <div style="
+            border:1px solid var(--line);
+            padding:30px;
+        ">
+
+            <p class="eyebrow">
+                05
+            </p>
+
+            <h3 style="
+                font:600 26px 'Space Grotesk';
+            ">
+                Pharmacy Desert Detection
+            </h3>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.7;
+            ">
+
+                Identified population cells containing more than 5,000
+                residents that fall outside the modeled 1 km pharmacy
+                service area.
+
+            </p>
+
+        </div>
+
+
+
+        <div style="
+            border:1px solid var(--line);
+            padding:30px;
+        ">
+
+            <p class="eyebrow">
+                06
+            </p>
+
+            <h3 style="
+                font:600 26px 'Space Grotesk';
+            ">
+                Market Intelligence
+            </h3>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.7;
+            ">
+
+                Analyzed commercial brands and amenities to identify
+                high-traffic business hubs that could support future
+                healthcare locations.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- KEY FINDINGS -->
+
+<div style="
+    margin-top:80px;
+    background:var(--accent);
+    color:white;
+    padding:55px;
+">
+
+
+    <p class="eyebrow" style="color:var(--accent2)">
+        KEY FINDINGS
+    </p>
+
+
+    <h2 style="
+        font:600 42px 'Space Grotesk';
+        max-width:850px;
+        margin-bottom:40px;
+    ">
+
+        Pharmacy availability is a location problem,
+        not simply a pharmacy-count problem.
+
+    </h2>
+
+
+
+    <div style="
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:35px;
+    ">
+
+
+        <div>
+
+            <h3 style="
+                font:600 24px 'Space Grotesk';
+            ">
+                10,000+ Residents per Pharmacy
+            </h3>
+
+            <p style="
+                color:rgba(255,255,255,.72);
+                line-height:1.7;
+            ">
+
+                Several neighborhoods showed population-to-pharmacy
+                ratios exceeding 10,000 residents per pharmacy,
+                highlighting potential service pressure.
+
+            </p>
+
+        </div>
+
+
+
+        <div>
+
+            <h3 style="
+                font:600 24px 'Space Grotesk';
+            ">
+                High-Density Pharmacy Deserts
+            </h3>
+
+            <p style="
+                color:rgba(255,255,255,.72);
+                line-height:1.7;
+            ">
+
+                Population-dense residential areas were identified where
+                residents fall outside the modeled 1 km pharmacy
+                service range.
+
+            </p>
+
+        </div>
+
+
+
+        <div>
+
+            <h3 style="
+                font:600 24px 'Space Grotesk';
+            ">
+                Population Changes the Story
+            </h3>
+
+            <p style="
+                color:rgba(255,255,255,.72);
+                line-height:1.7;
+            ">
+
+                Mapping pharmacies alone can hide underserved
+                communities. Overlaying population density reveals where
+                access gaps matter most.
+
+            </p>
+
+        </div>
+
+
+
+        <div>
+
+            <h3 style="
+                font:600 24px 'Space Grotesk';
+            ">
+                Commercial Hubs Create Opportunities
+            </h3>
+
+            <p style="
+                color:rgba(255,255,255,.72);
+                line-height:1.7;
+            ">
+
+                Commercial brand concentration can provide an additional
+                signal for identifying high-activity areas that may
+                support new pharmacy locations.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- CORE METRICS -->
+
+<div style="
+    margin-top:80px;
+    border-top:1px solid var(--line);
+    padding-top:50px;
+">
+
+
+    <p class="eyebrow">
+        LOCATION INTELLIGENCE
+    </p>
+
+
+    <h2 style="
+        font:600 42px 'Space Grotesk';
+        margin-bottom:40px;
+    ">
+
+        Three metrics turn maps into decisions.
+
+    </h2>
+
+
+
+    <div style="
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:20px;
+    ">
+
+
+        <div style="
+            border:1px solid var(--line);
+            padding:30px;
+        ">
+
+            <p class="eyebrow">
+                01
+            </p>
+
+            <h3 style="
+                font:600 26px 'Space Grotesk';
+            ">
+                Population / Pharmacy
+            </h3>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.7;
+            ">
+
+                Measures the number of residents served by each
+                pharmacy within a neighborhood.
+
+            </p>
+
+        </div>
+
+
+
+        <div style="
+            border:1px solid var(--line);
+            padding:30px;
+        ">
+
+            <p class="eyebrow">
+                02
+            </p>
+
+            <h3 style="
+                font:600 26px 'Space Grotesk';
+            ">
+                Service Coverage
+            </h3>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.7;
+            ">
+
+                Measures which population areas fall within or outside
+                the 1 km pharmacy accessibility zone.
+
+            </p>
+
+        </div>
+
+
+
+        <div style="
+            border:1px solid var(--line);
+            padding:30px;
+        ">
+
+            <p class="eyebrow">
+                03
+            </p>
+
+            <h3 style="
+                font:600 26px 'Space Grotesk';
+            ">
+                Commercial Activity
+            </h3>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.7;
+            ">
+
+                Uses commercial amenity concentration as an additional
+                signal for potential location attractiveness.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- BUSINESS APPLICATION -->
+
+<div style="
+    margin-top:80px;
+    border-top:1px solid var(--line);
+    padding-top:50px;
+">
+
+
+    <p class="eyebrow">
+        BUSINESS APPLICATION
+    </p>
+
+
+    <h2 style="
+        font:600 42px 'Space Grotesk';
+        max-width:900px;
+        margin-bottom:40px;
+    ">
+
+        From “Where are pharmacies?” to
+        “Where should we invest next?”
+
+    </h2>
+
+
+
+    <div style="
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:20px;
+    ">
+
+
+        <div style="
+            border:1px solid var(--line);
+            padding:30px;
+        ">
+
+            <p class="eyebrow">
+                HEALTHCARE PLANNING
+            </p>
+
+            <h3 style="
+                font:600 25px 'Space Grotesk';
+            ">
+                Improve Accessibility
+            </h3>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.7;
+            ">
+
+                Prioritize areas where population density is high but
+                pharmacy coverage is limited.
+
+            </p>
+
+        </div>
+
+
+
+        <div style="
+            border:1px solid var(--line);
+            padding:30px;
+        ">
+
+            <p class="eyebrow">
+                EXPANSION
+            </p>
+
+            <h3 style="
+                font:600 25px 'Space Grotesk';
+            ">
+                Identify New Locations
+            </h3>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.7;
+            ">
+
+                Combine underserved population clusters with commercial
+                activity to generate potential expansion candidates.
+
+            </p>
+
+        </div>
+
+
+
+        <div style="
+            border:1px solid var(--line);
+            padding:30px;
+        ">
+
+            <p class="eyebrow">
+                MARKET STRATEGY
+            </p>
+
+            <h3 style="
+                font:600 25px 'Space Grotesk';
+            ">
+                Support Location Decisions
+            </h3>
+
+            <p style="
+                color:var(--muted);
+                line-height:1.7;
+            ">
+
+                Give healthcare and retail decision-makers a geographic
+                evidence layer for evaluating future investments.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ANALYTICAL VALUE -->
+
+<div style="
+    margin-top:80px;
+    border-top:1px solid var(--line);
+    padding-top:50px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+">
+
+
+    <div>
+
+        <p class="eyebrow">
+            ANALYTICAL VALUE
+        </p>
+
+
+        <h2 style="
+            font:600 40px 'Space Grotesk';
+        ">
+
+            Geography becomes a business variable.
+
+        </h2>
+
+    </div>
+
+
+
+    <div>
+
+        <p style="
+            color:var(--muted);
+            line-height:1.8;
+        ">
+
+            This project demonstrates how spatial data can be integrated
+            with demographic and commercial information to answer
+            business questions that traditional tabular analysis cannot
+            answer on its own.
+
+        </p>
+
+
+        <p style="
+            color:var(--muted);
+            line-height:1.8;
+        ">
+
+            Instead of asking only how many pharmacies exist, the analysis
+            asks where they are, who they serve, who remains outside their
+            coverage, and what other signals indicate a potentially
+            attractive location.
+
+        </p>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- TAKEAWAY -->
+
+<div style="
+    margin-top:80px;
+    background:var(--accent);
+    color:white;
+    padding:55px;
+">
+
+
+    <p class="eyebrow" style="color:var(--accent2)">
+        PROJECT TAKEAWAY
+    </p>
+
+
+    <h2 style="
+        font:600 42px 'Space Grotesk';
+        max-width:900px;
+        margin-bottom:25px;
+    ">
+
+        The best location is not necessarily where demand is highest.
+
+        It is where demand, accessibility and market opportunity
+        intersect.
+
+    </h2>
+
+
+    <p style="
+        color:rgba(255,255,255,.72);
+        max-width:820px;
+        line-height:1.8;
+    ">
+
+        By combining geospatial analysis, population data and commercial
+        intelligence, this project creates a practical framework for
+        identifying healthcare accessibility gaps and supporting
+        location-based business decisions.
+
+    </p>
+
+</div>
+
+
+
+<!-- PROJECT ASSETS -->
+
+<div style="
+    margin-top:80px;
+    border-top:1px solid var(--line);
+    padding-top:45px;
+">
+
+
+    <p class="eyebrow">
+        PROJECT ASSETS
+    </p>
+
+
+    <h2 style="
+        font:600 36px 'Space Grotesk';
+        margin-bottom:20px;
+    ">
+
+        Explore the analysis
+
+    </h2>
+
+
+    <p style="
+        color:var(--muted);
+        max-width:750px;
+        line-height:1.8;
+    ">
+
+        Explore the complete geospatial analysis, methodology,
+        documentation and interactive mapping work on GitHub.
+
+    </p>
+
+
+
+    <div style="
+        display:flex;
+        flex-wrap:wrap;
+        gap:15px;
+        margin-top:30px;
+    ">
+
+
+        <a
+            class="btn primary"
+            href="https://github.com/AmrGhabbour/kwt-healthcare-geoanalysis"
+            target="_blank"
+            rel="noopener"
+        >
+            GitHub Repository ↗
+        </a>
+
+
+        <a
+            class="btn"
+            href="https://github.com/AmrGhabbour/kwt-healthcare-geoanalysis/blob/main/kwt-healthcare-geoanalysis.ipynb"
+            target="_blank"
+            rel="noopener"
+        >
+            View Notebook ↗
+        </a>
+
+
+        <a
+            class="btn"
+            href="https://github.com/AmrGhabbour/kwt-healthcare-geoanalysis/blob/main/README.md"
+            target="_blank"
+            rel="noopener"
+        >
+            Read README ↗
+        </a>
+
+
+    </div>
+
+
+
+    <div style="margin-top:50px">
+
+        <a
+            class="btn"
+            href="../index.html#projects"
+        >
+            ← Back to projects
+        </a>
+
+    </div>
+
+
+</div>
+```
+
+</main>
+
+</body>
+
+</html>
