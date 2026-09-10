@@ -10,6 +10,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+<style>
+.profile-image{width:100%;height:100%;object-fit:cover;display:block;border-radius:24px}
+.hero-photo-card{position:relative;overflow:hidden;min-height:520px;border-radius:28px}
+.hero-photo-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.42));pointer-events:none}
+.photo-caption{position:absolute;left:24px;bottom:22px;z-index:2;color:#fff;letter-spacing:.04em;font-size:.78rem;font-weight:600;text-transform:uppercase}
+.about-photo{margin-top:28px;width:100%;max-width:360px;aspect-ratio:1;object-fit:cover;border-radius:22px;display:block}
+.experience-photo{width:100%;max-width:420px;aspect-ratio:4/5;object-fit:cover;border-radius:22px;display:block}
+.project .impact{margin-top:14px}
+.project a.github-link{margin-left:14px;opacity:.72}
+.experience-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:42px;align-items:center}
+@media(max-width:800px){.experience-wrap{grid-template-columns:1fr}.experience-photo{max-width:100%}.hero-photo-card{min-height:420px}}
+</style>
+
 </head>
 <body>
   <header class="nav">
@@ -28,7 +42,7 @@
       <div class="hero-copy">
         <p class="eyebrow">DATA ANALYST · BUSINESS INTELLIGENCE · COMMERCIAL ANALYTICS</p>
         <h1>I turn business data into <em>better decisions.</em></h1>
-        <p class="lead">Data Analyst with 4+ years of experience using SQL, Power BI, Excel and Python to uncover performance opportunities, automate reporting and translate complex data into clear business actions.</p>
+        <p class="lead">Data Analyst with 3+ years of experience using SQL, Power BI, Excel and Python to uncover performance opportunities, automate reporting and translate complex data into clear business actions.</p>
         <div class="actions">
           <a class="btn primary" href="#projects">Explore projects ↓</a>
           <a class="btn secondary" href="assets/Amr Ghabbour - Commercial Analyst resume.pdf" download>Download CV</a>
@@ -39,13 +53,9 @@
           <div><strong>85%</strong><span>faster<br>decision cycles</span></div>
         </div>
       </div>
-      <div class="hero-card">
-        <div class="orb"></div>
-        <div class="mini-dashboard">
-          <div class="dash-top"><span>Revenue Intelligence</span><b>LIVE</b></div>
-          <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          <div class="dash-bottom"><span>Revenue</span><strong>+18.4%</strong></div>
-        </div>
+      <div class="hero-card hero-photo-card">
+        <img class="profile-image" src="assets/Amr-hero.png" alt="Amr Ghabbour">
+        <span class="photo-caption">Data · Decisions · Commercial Impact</span>
       </div>
     </section>
 
@@ -56,46 +66,40 @@
       </div>
       <div class="projects">
         <article class="project featured">
-          <div class="project-meta"><span>01</span><span>SQL · POWER BI · EXCEL</span></div>
-          <h3>Sales Performance Intelligence</h3>
-          <p>Executive view of revenue, sales representatives, products and regional performance — designed to expose where growth is coming from and where it is leaking.</p>
-          <div class="tags"><span>Revenue</span><span>KPI</span><span>Performance</span></div>
-          <a href="projects/sales-performance.html">View case study →</a>
-        </article>
-        <article class="project">
-          <div class="project-meta"><span>02</span><span>PYTHON · SQL</span></div>
-          <h3>Customer Lifetime Value</h3>
-          <p>Predict the Customer Lifetime Value (CLV) for a business based on historical transaction data.</p>
-          <div class="tags"><span>RFM</span><span>Customer Analytics</span></div>
-          <a href="projects/customer-segmentation.html">View case study →</a>
-        </article>
-        <article class="project">
-          <div class="project-meta"><span>03</span><span>PYTHON · STATISTICS</span></div>
+          <div class="project-meta"><span>01</span><span>PYTHON · APRIORI</span></div>
           <h3>Market Basket Analysis</h3>
-          <p>Association analysis designed to discover which products naturally appear together and quantify cross-selling opportunities using support, confidence and lift.</p>
-          <div class="tags"><span>Association Rules</span><span>Lift</span></div>
+          <p>Analyzed 10M+ transaction records to uncover hidden product associations and identify high-value pairings for targeted bundle strategies.</p>
+          <div class="tags"><span>Apriori</span><span>Lift &gt; 2.0</span><span>Cross-sell</span></div>
+          <p class="impact"><strong>Impact:</strong> Targeted bundle offers boosted Average Order Value (AOV) by 13%.</p>
           <a href="projects/market-basket.html">View case study →</a>
+          <a class="github-link" href="https://github.com/AmrGhabbour/Market_Basket_Analysis" target="_blank" rel="noopener">GitHub ↗</a>
         </article>
         <article class="project">
-          <div class="project-meta"><span>04</span><span>PYTHON · TIME SERIES</span></div>
-          <h3>Sales Forecasting</h3>
-          <p>Time-series analysis that turns historical sales patterns into a forward-looking planning tool for commercial teams.</p>
-          <div class="tags"><span>Forecasting</span><span>Trend Analysis</span></div>
-          <a href="projects/sales-forecasting.html">View case study →</a>
+          <div class="project-meta"><span>03</span><span>POWER BI</span></div>
+          <h3>Sales Performance &amp; KPI Dashboard</h3>
+          <p>Built a dynamic dashboard covering monthly revenue, customer segments and sales-representative performance for faster commercial tracking.</p>
+          <div class="tags"><span>Power BI</span><span>KPI</span><span>Sales Analytics</span></div>
+          <p class="impact"><strong>Impact:</strong> Reduced manual reporting by 85%.</p>
+          <a href="projects/sales-performance.html">View case study →</a>
+          <a class="github-link" href="https://github.com/AmrGhabbour" target="_blank" rel="noopener">GitHub ↗</a>
         </article>
         <article class="project">
-          <div class="project-meta"><span>05</span><span>SQL · ANALYTICS</span></div>
-          <h3>Customer Churn Prediction </h3>
-          <p>Behavioral analysis of acquisition, product views, cart activity and checkout to locate conversion bottlenecks and quantify opportunities.</p>
-          <div class="tags"><span>Funnel</span><span>Conversion</span></div>
-          <a href="projects/funnel-analysis.html">View case study →</a>
+          <div class="project-meta"><span>04</span><span>PYTHON · LIFETIMES</span></div>
+          <h3>Customer Lifetime Value Analysis</h3>
+          <p>Predicted long-term revenue using BG/NBD and Gamma-Gamma models to support customer prioritization and loyalty investment.</p>
+          <div class="tags"><span>BG/NBD</span><span>Gamma-Gamma</span><span>CLV</span></div>
+          <p class="impact"><strong>Impact:</strong> Identified a high-value segment responsible for 80% of revenue, supporting strategic loyalty resource allocation.</p>
+          <a href="projects/customer-lifetime-value.html">View case study →</a>
+          <a class="github-link" href="https://github.com/AmrGhabbour/Customer_Lifetime_Value_Python" target="_blank" rel="noopener">GitHub ↗</a>
         </article>
         <article class="project">
-          <div class="project-meta"><span>06</span><span>POWER BI · DATA STORYTELLING</span></div>
-          <h3>Executive BI Dashboard</h3>
-          <p>A management-ready dashboard framework connecting operational KPIs with drill-down analysis and a clear decision narrative.</p>
-          <div class="tags"><span>Power BI</span><span>Executive Reporting</span></div>
-          <a href="projects/executive-dashboard.html">View case study →</a>
+          <div class="project-meta"><span>05</span><span>PYTHON · XGBOOST</span></div>
+          <h3>Customer Churn Prediction</h3>
+          <p>Developed a classification model to identify at-risk customers early and prioritize proactive retention actions.</p>
+          <div class="tags"><span>XGBoost</span><span>Classification</span><span>Churn</span></div>
+          <p class="impact"><strong>Model performance:</strong> 78% accuracy. <strong>Business impact:</strong> 20% reduction in churn.</p>
+          <a href="projects/telecom-churn.html">View case study →</a>
+          <a class="github-link" href="https://github.com/AmrGhabbour/Telecom_Customer_Churn_Prediction" target="_blank" rel="noopener">GitHub ↗</a>
         </article>
       </div>
     </section>
@@ -104,6 +108,7 @@
       <div>
         <p class="eyebrow">ABOUT</p>
         <h2>Analytics with a<br>commercial mindset.</h2>
+        <img class="about-photo" src="assets/Amr-about.jpg" alt="Amr Ghabbour professional portrait">
       </div>
       <div class="about-copy">
         <p>I’m Amr Ghabbour, a Data Analyst focused on Business Intelligence and Commercial Analytics. My approach starts with the decision the business needs to make — then works backwards to the data, analysis and visualization required to make that decision clearer.</p>
@@ -119,17 +124,22 @@
         <div><p class="eyebrow">EXPERIENCE</p><h2>What I bring<br>to a team.</h2></div>
         <p>Selected impact from professional analytics work.</p>
       </div>
-      <div class="experience">
-        <div class="exp-row"><span class="num">01</span><div><h3>Power BI & reporting automation</h3><p>Developed a real-time dashboard ecosystem for monthly revenue and sales-representative KPIs, reclaiming 40+ operational hours per month and accelerating executive decision-making cycles.</p></div></div>
-        <div class="exp-row"><span class="num">02</span><div><h3>Funnel & user behavior analysis</h3><p>Analyzed marketplace traffic and user behavior using Google Analytics and SQL, identifying funnel drop-offs and opportunities associated with a 15% conversion improvement.</p></div></div>
-        <div class="exp-row"><span class="num">03</span><div><h3>Commercial decision support</h3><p>Analyzed sales routes, customer segments and product opportunities to help commercial teams prioritize high-performing areas and uncover growth opportunities.</p></div></div>
+      <div class="experience-wrap">
+        <div class="experience">
+          <div class="exp-row"><span class="num">01</span><div><h3>Turn data into decisions</h3><p>I connect KPIs, customer behavior and commercial performance to explain what matters, why it matters and where the team should act next.</p></div></div>
+          <div class="exp-row"><span class="num">02</span><div><h3>Build tools people actually use</h3><p>From Power BI dashboards to SQL analysis and Python models, I build practical solutions that reduce repetitive work, improve visibility and make decision-making faster.</p></div></div>
+          <div class="exp-row"><span class="num">03</span><div><h3>Bring a commercial mindset</h3><p>My analytics background is grounded in sales, marketing and customer behavior. I look for revenue opportunities, retention levers, performance gaps and the actions behind the numbers.</p></div></div>
+          <div class="exp-row"><span class="num">04</span><div><h3>Communicate across teams</h3><p>I translate technical analysis into clear business language so operational teams and decision-makers can understand the insight and act on it.</p></div></div>
+          <div class="exp-row"><span class="num">05</span><div><h3>Deliver measurable impact</h3><p>Reduced manual reporting by 85%, reclaimed 40+ operational hours per month, and identified opportunities associated with a 15% conversion improvement.</p></div></div>
+        </div>
+        <div><img class="experience-photo" src="assets/Amr-experience.jpg" alt="Amr Ghabbour at work"></div>
       </div>
     </section>
 
     <section class="cta container" id="contact">
       <p class="eyebrow">LET'S CONNECT</p>
       <h2>Have a business problem<br>worth analyzing?</h2>
-      <p>I'm open to Data Analyst, Business Intelligence and Commercial Analytics opportunities.</p>
+      <p>I'm open to Data Analyst, Business Intelligence and Commercial Analytics opportunities where I can turn complex data into measurable business impact.</p>
       <div class="actions">
         <a class="btn primary" href="mailto:a.m.ghabbour@gmail.com">Email me</a>
         <a class="btn secondary" href="https://www.linkedin.com/in/amrghabbour/" target="_blank" rel="noopener">LinkedIn ↗</a>
